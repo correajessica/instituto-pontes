@@ -1,0 +1,53 @@
+/* Complementos da Experiência Prática III */
+
+input.erro,
+select.erro,
+textarea.erro {
+  border-color: var(--cor-erro);
+  box-shadow: 0 0 0 3px rgba(180, 35, 24, .08);
+}
+
+input.sucesso,
+select.sucesso,
+textarea.sucesso {
+  border-color: var(--cor-sucesso);
+  box-shadow: 0 0 0 3px rgba(47, 125, 50, .08);
+}
+
+.field-message {
+  min-height: 1.2em;
+  color: var(--cor-erro);
+  font-size: var(--fonte-xs);
+}
+
+.preference-note {
+  margin-top: 0;
+  color: var(--cor-texto-suave);
+  font-size: .92rem;
+}
+
+.nav-menu a[aria-current="page"]:not(.nav-cta) {
+  color: var(--cor-primaria);
+}
+
+.toast {
+  left: 50%;
+  right: auto;
+  bottom: 2rem;
+  width: min(90%, 420px);
+  min-width: 0;
+  max-width: 420px;
+  transform: translate(-50%, 140%);
+  z-index: 9999;
+}
+
+.toast.show {
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 768px) {
+  .toast {
+    bottom: 5.5rem;
+    width: calc(100% - 2rem);
+  }
+}
