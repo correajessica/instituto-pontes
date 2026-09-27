@@ -6,6 +6,26 @@
   <meta name="description" content="Cadastro para voluntários e apoiadores do Instituto Pontes.">
   <title>Instituto Pontes | Cadastro</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .toast{
+      left:50%;
+      right:auto;
+      bottom:2rem;
+      width:min(90%,420px);
+      min-width:0;
+      max-width:420px;
+      transform:translate(-50%,140%);
+    }
+    .toast.show{
+      transform:translate(-50%,0);
+    }
+    @media(max-width:768px){
+      .toast{
+        bottom:5.5rem;
+        width:calc(100% - 2rem);
+      }
+    }
+  </style>
   <script src="js/script.js" defer></script>
 </head>
 <body>
