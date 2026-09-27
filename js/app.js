@@ -4,18 +4,31 @@ import { iniciarFormulario } from "./form.js";
 function iniciarMenu() {
   const toggle = document.querySelector(".menu-toggle");
   const menu = document.querySelector(".nav-menu");
+  const textoToggle = toggle?.querySelector(".sr-only");
 
   if (!toggle || !menu) return;
+
+  function fecharMenu() {
+    menu.classList.remove("ativo");
+    toggle.setAttribute("aria-expanded", "false");
+    if (textoToggle) textoToggle.textContent = "Abrir menu";
+  }
 
   toggle.addEventListener("click", () => {
     const ativo = menu.classList.toggle("ativo");
     toggle.setAttribute("aria-expanded", String(ativo));
+    if (textoToggle) textoToggle.textContent = ativo ? "Fechar menu" : "Abrir menu";
   });
 
   document.addEventListener("click", (event) => {
     if (!event.target.closest(".nav-menu a")) return;
-    menu.classList.remove("ativo");
-    toggle.setAttribute("aria-expanded", "false");
+    fecharMenu();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !menu.classList.contains("ativo")) return;
+    fecharMenu();
+    toggle.focus();
   });
 }
 
